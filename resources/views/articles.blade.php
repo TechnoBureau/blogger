@@ -41,6 +41,9 @@
                 </div>
             </div>
         </div>
+        <div class="mt-auto d-flex justify-content-center w-100">
+            {{ $articles->links() }}
+        </div>
         @endforeach
         @if($articles->isEmpty())
         <div class="col-md-12 pt-2 pb-2 RecentArticle">
