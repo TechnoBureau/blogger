@@ -40,8 +40,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="mt-auto d-flex justify-content-center w-100">
+	</div>
+	<div class="mt-auto d-flex justify-content-center w-100">
             {{ $articles->links() }}
         </div>
         @endforeach
