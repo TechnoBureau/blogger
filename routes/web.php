@@ -13,13 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/home', [TechnoBureau\UI\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -37,12 +31,13 @@ Route::group(['middleware' => ['auth']], function() {
 
 Route::get('/{category}/', 
             [TechnoBureau\Blog\Http\Controllers\ArticleController::class,'showByCategory']
-        )->name('showByCategory');
+        )->name('article.category');
 
 Route::get('/{category}/{subcategory}/', 
             [TechnoBureau\Blog\Http\Controllers\ArticleController::class,'showBySubCategory']
-        )->name('showBySubCategory');
+        )->name('article.subcategory');
         
-Route::get('/{category}/{subcategory}/{title}/article{id}.html', 
-            [TechnoBureau\Blog\Http\Controllers\ArticleController::class,'show']
-        )->name('showByID');
+Route::get('/{category}/{subcategory}/{title}.{id}/', 
+            [TechnoBureau\Blog\Http\Controllers\ArticleController::class,'view']
+        )->name('article.view');
+
